@@ -15,5 +15,6 @@ export class MoocBackendApp {
 
     async stop() {
         return this.server?.stop();
+        
     }
 }
