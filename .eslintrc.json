@@ -1,5 +1,5 @@
 {
-    "extends": "eslint-rules",
+"extends": "eslint-rules",
     "defaultSeverity": "error",
     "rules": {
       "adjacent-overload-signatures": true,
