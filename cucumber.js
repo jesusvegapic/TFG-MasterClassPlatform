@@ -8,6 +8,6 @@ const common = [
     '--require tests/apps/mooc/backend/features/step_definitions/*.steps.ts'
   ].join(' ');
   
-  export default {
+  module.exports = {
     mooc_backend
   };
