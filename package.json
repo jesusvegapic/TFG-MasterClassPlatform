@@ -12,6 +12,7 @@
   },
   "scripts": {
     "dev:mooc:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules  ./src/apps/Mooc/backend/start.ts",
+    "start:backoffice:frontend": "cd src/apps/Backoffice/frontend && npm run start",
     "prepare": "husky install",
     "lint": "eslint src/**/*.ts{,x}",
     "test": "npm run test:features",
