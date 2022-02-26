@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev:mooc:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules  ./src/apps/Mooc/backend/start.ts",
-    "start:backoffice:frontend": "cd src/apps/Backoffice/frontend && npm run start",
+    "start:backoffice:frontend": "cd src/apps/Backoffice/frontend && NODE_ENV=dev npm run start",
     "prepare": "husky install",
     "lint": "eslint src/**/*.ts{,x}",
     "test": "npm run test:features",
@@ -21,7 +21,8 @@
     "build": "npm run build:clean && npm run build:tsc && npm run build:di",
     "build:tsc": "tsc -p tsconfig.prod.json",
     "build:di": "copy 'src/**/*.{json,yaml,html,png}' dist/src",
-    "build:clean": "rm -r dist; exit 0"
+    "build:clean": "rm -r dist; exit 0",
+    "cypress:open": "NODE_ENV=end2end cypress open"
   },
   "dependencies": {
     "body-parser": "^1.19.2",
@@ -58,6 +59,7 @@
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
+    "cypress": "^9.5.0",
     "eslint": "^8.9.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",
