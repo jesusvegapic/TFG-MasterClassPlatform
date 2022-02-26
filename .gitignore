@@ -10,6 +10,7 @@ test-results.xml
 
 # testing
 /coverage
+*.repo
 
 # production
 /build
