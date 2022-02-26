@@ -6,4 +6,4 @@ services:
 
   Apps.mooc.controllers.VideoPutController:
     class: ../../controllers/VideoPutController
-    arguments: []
+    arguments: ["@Mooc.Videos.application.VideoCreator"]

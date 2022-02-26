@@ -1,0 +1,9 @@
+services:
+
+  Mooc.Videos.application.VideoCreator:
+    class: ../../../../../Contexts/Mooc/Videos/application/VideoCreator
+    arguments: ["@Mooc.Videos.domain.CourseRepository"]
+
+  Mooc.Videos.domain.CourseRepository:
+    class: ../../../../../Contexts/Mooc/Videos/infrastructure/FileVideoRepository
+    arguments: [""]
