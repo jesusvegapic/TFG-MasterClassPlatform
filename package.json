@@ -23,9 +23,9 @@
     "build:tsc": "tsc -p tsconfig.prod.json",
     "build:di": "copy 'src/**/*.{json,yaml,html,png}' dist/src",
     "build:clean": "rm -r dist; exit 0",
-    "cypress:open": "NODE_ENV=end2end npm run backoffice:frontend && NODE_ENV=end2end ts-node tests/utils/cypress/open",
-    "cypress:run": "NODE_ENV=end2end npm run backoffice:frontend && NODE_ENV=end2end ts-node tests/utils/cypress/run",
-    "cypress:ci:start": "NODE_ENV=end2end npm run backoffice:frontend && NODE_ENV=end2end ts-node tests/utils/cypress/startApps"
+    "cypress:open": "(NODE_ENV=end2end npm run backoffice:frontend&) && NODE_ENV=end2end ts-node tests/utils/cypress/open",
+    "cypress:run": "(NODE_ENV=end2end npm run backoffice:frontend&) && NODE_ENV=end2end ts-node tests/utils/cypress/run",
+    "cypress:ci:start": "(NODE_ENV=end2end npm run backoffice:frontend&) && NODE_ENV=end2end ts-node tests/utils/cypress/startApps"
   },
   "dependencies": {
     "body-parser": "^1.19.2",
