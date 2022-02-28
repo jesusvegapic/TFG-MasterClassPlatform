@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import SubirVideo from './components/subirVideo'
+import SubirVideo from './components/videos/subirVideo'
 import './App.css';
 
 function App() {
