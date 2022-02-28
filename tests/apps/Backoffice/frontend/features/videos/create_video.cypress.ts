@@ -1,14 +1,28 @@
+import faker from '@faker-js/faker';
 
-describe('Create courses', () => {
+describe('frontpage courses can be opened', () => {
+    it('exists title', () => {
+        cy.visit(''); 
+        cy.contains('Publicar conferencias');
+    });
+});
+
+describe('Create video', () => {
     beforeEach(() => {
-        cy.visit('');
+        cy.visit('')
     });
 
-    it('frontpage can be opened', () => {
-        cy.contains('Publicar conferencia');
-    });
-
-    it('exists a button for upload a video', () => {
-        cy.get('input[value="Publicar conferencia"]');
+    it('I can write upload video formulary, upload the video and see sucessfull message', () => {
+        let i = 0;
+        const numberOfCourses = 5;
+        while (i < numberOfCourses) {
+            i++;
+            const courseName = faker.random.words(1);
+            cy.get('input[name="nombre"]').type(courseName);
+            cy.get('input[name="duracion"]').type('8 days');
+            cy.get('form[data-cy="subir video"]').submit();
+            cy.get('div[role="alert"]').contains(`Felicidades, el curso ${courseName} ha sido creado!`);
+            cy.reload();
+        } 
     });
 });
