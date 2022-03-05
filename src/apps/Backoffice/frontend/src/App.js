@@ -1,9 +1,11 @@
 import logo from './logo.svg';
+import CreateVideoForm from './components/pages/videos/partials/create_video_form'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <CreateVideoForm/>
+    /*<div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,6 +21,7 @@ function App() {
         </a>
       </header>
     </div>
+    */
   );
 }
 

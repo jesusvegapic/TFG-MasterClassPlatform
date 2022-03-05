@@ -12,7 +12,8 @@
   },
   "scripts": {
     "dev:mooc:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules  ./src/apps/Mooc/backend/start.ts",
-    "start:backoffice:frontend": "cd src/apps/Backoffice/frontend && npm run start",
+    "dev:backoffice:frontend": "NODE_ENV=dev npm run backoffice:frontend",
+    "backoffice:frontend": "cd src/apps/Backoffice/frontend && npm run start",
     "prepare": "husky install",
     "lint": "eslint src/**/*.ts{,x}",
     "test": "npm run test:features",
@@ -21,9 +22,14 @@
     "build": "npm run build:clean && npm run build:tsc && npm run build:di",
     "build:tsc": "tsc -p tsconfig.prod.json",
     "build:di": "copy 'src/**/*.{json,yaml,html,png}' dist/src",
-    "build:clean": "rm -r dist; exit 0"
+    "build:clean": "rm -r dist; exit 0",
+    "cypress:open": "(NODE_ENV=end2end npm run backoffice:frontend&) && NODE_ENV=end2end ts-node tests/utils/cypress/open",
+    "cypress:run": "(NODE_ENV=end2end npm run backoffice:frontend&) && NODE_ENV=end2end ts-node tests/utils/cypress/run",
+    "cypress:ci:start": "(NODE_ENV=end2end npm run backoffice:frontend&) && NODE_ENV=end2end ts-node tests/utils/cypress/startApps"
   },
   "dependencies": {
+    "@types/uuid": "^8.3.4",
+    "@types/uuid-validate": "^0.0.1",
     "body-parser": "^1.19.2",
     "bodybuilder": "^2.4.0",
     "bson": "^4.6.1",
@@ -42,10 +48,12 @@
     "node-dependency-injection": "^2.7.1",
     "ts-node": "^10.5.0",
     "typescript": "^4.5.5",
+    "uuid-validate": "^0.0.3",
     "winston": "^3.6.0"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^7.3.2",
+    "@faker-js/faker": "^6.0.0-alpha.7",
     "@types/compression": "^1.7.2",
     "@types/connect-flash": "^0.0.37",
     "@types/cookie-parser": "^1.4.2",
@@ -58,11 +66,11 @@
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
+    "cypress": "^9.5.0",
     "eslint": "^8.9.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-rules": "^0.4.3",
-    "faker": "^6.6.6",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
     "lint-staged": "^12.3.4",
