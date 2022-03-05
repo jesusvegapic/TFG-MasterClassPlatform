@@ -1,10 +1,10 @@
 import logo from './logo.svg';
-import SubirVideo from './components/pages/videos/partials/create_video_form'
+import CreateVideoForm from './components/pages/videos/partials/create_video_form'
 import './App.css';
 
 function App() {
   return (
-    <SubirVideo/>
+    <CreateVideoForm/>
     /*<div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

@@ -28,6 +28,8 @@
     "cypress:ci:start": "(NODE_ENV=end2end npm run backoffice:frontend&) && NODE_ENV=end2end ts-node tests/utils/cypress/startApps"
   },
   "dependencies": {
+    "@types/uuid": "^8.3.4",
+    "@types/uuid-validate": "^0.0.1",
     "body-parser": "^1.19.2",
     "bodybuilder": "^2.4.0",
     "bson": "^4.6.1",
@@ -46,6 +48,7 @@
     "node-dependency-injection": "^2.7.1",
     "ts-node": "^10.5.0",
     "typescript": "^4.5.5",
+    "uuid-validate": "^0.0.3",
     "winston": "^3.6.0"
   },
   "devDependencies": {
