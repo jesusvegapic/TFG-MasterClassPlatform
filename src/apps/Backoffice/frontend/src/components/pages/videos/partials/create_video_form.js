@@ -8,7 +8,7 @@ const CreateVideoForm = () => {
         const {target} = event;
         const videosPostController = new VideosPostController();
         try {
-            await videosPostController.createVideo(target.name, target.name, target.duration, target.url);
+            await videosPostController.createVideo(target.id.value, target.nombre.value, target.duracion.value, target.url.value);
         } catch(e) {
             console.log(e);
         }

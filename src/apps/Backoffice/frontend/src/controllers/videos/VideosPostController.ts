@@ -4,7 +4,7 @@
   public async createVideo(id: string, name: string, duration: string, url: string) {
 
     
-    await fetch('https://localhost:5000/videos', {
+    await fetch('http://localhost:5000/videos:id', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8'

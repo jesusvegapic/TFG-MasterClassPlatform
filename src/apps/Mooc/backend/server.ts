@@ -7,7 +7,7 @@ import helmet from 'helmet';
 import * as http from 'http';
 import httpStatus from 'http-status';
 import { registerRoutes } from './routes';
-
+import cors from 'cors';
 export class Server {
   private express: express.Express;
   private port: string;
@@ -22,6 +22,7 @@ export class Server {
     this.express.use(helmet.noSniff());
     this.express.use(helmet.hidePoweredBy());
     this.express.use(helmet.frameguard({ action: 'deny' }));
+    this.express.use(cors);
     this.express.use(compress());
     const router = Router();
     router.use(errorHandler());

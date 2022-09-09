@@ -3,7 +3,7 @@ import faker from '@faker-js/faker';
 describe('frontpage courses can be opened', () => {
     it('exists title', () => {
         cy.visit(''); 
-        cy.contains('Crear Video');
+        cy.contains('Crear video');
     });
 });
 
