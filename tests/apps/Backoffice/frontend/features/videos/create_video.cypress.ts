@@ -18,7 +18,6 @@ describe('Create video', () => {
         while (i < numberOfCourses) {
             i++;
             const courseName = faker.random.words(1);
-            cy.get('input[name="id"]').type('1234567');
             cy.get('input[name="nombre"]').type(courseName);
             cy.get('input[name="duracion"]').type('8 days');
             cy.get('input[name="url"]').type('www.urlInventada.com');

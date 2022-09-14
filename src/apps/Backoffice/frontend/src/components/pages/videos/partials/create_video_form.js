@@ -1,14 +1,14 @@
 import React from "react";
-import {VideosPostController} from '../../../../controllers/videos/VideosPostController.ts'
+import {VideosPutController} from '../../../../controllers/videos/VideosPutController.ts'
 
 const CreateVideoForm = () => {
 
     const PostVideo = async (event) => {
         event.preventDefault();
         const {target} = event;
-        const videosPostController = new VideosPostController();
+        const videosPutController = new VideosPutController();
         try {
-            await videosPostController.createVideo(target.id.value, target.nombre.value, target.duracion.value, target.url.value);
+            await videosPutController.createVideo(target.nombre.value, target.duracion.value, target.url.value);
         } catch(e) {
             console.log(e);
         }
@@ -17,10 +17,6 @@ const CreateVideoForm = () => {
     return (
     <form id="create-video" data-cy='create-video' onSubmit={PostVideo}>
         <h2>Crear video</h2>
-        <label>
-            Id
-        </label>
-        <input type="text" name="id"/>
         <label>
             nombre
         </label>

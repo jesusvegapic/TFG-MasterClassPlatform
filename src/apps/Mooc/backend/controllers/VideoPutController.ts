@@ -7,7 +7,8 @@ export class VideoPutController implements Controller {
   constructor(private videoCreator: VideoCreator) {}
 
     async run(req: Request, res: Response): Promise<void> {
-      const {id, name, duration, url} = req.body;
+      const id = req.params.id;
+      const {name, duration, url} = req.body;
       
       await this.videoCreator.run(id, name, duration, url);
 
