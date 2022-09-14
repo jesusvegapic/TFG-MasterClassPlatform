@@ -7,6 +7,9 @@ const CreateVideoForm = () => {
         event.preventDefault();
         const {target} = event;
         const videosPutController = new VideosPutController();
+        if(target.nombre.value == null || target.duracion.value == null || target.url.value == null) {
+
+        }
         try {
             await videosPutController.createVideo(target.nombre.value, target.duracion.value, target.url.value);
         } catch(e) {
@@ -20,15 +23,15 @@ const CreateVideoForm = () => {
         <label>
             nombre
         </label>
-        <input type="text" name="nombre"/>
+        <input type="text" name="nombre" required="true"/>
         <label>
             duración
         </label>
-        <input type="text" name="duracion"/>
+        <input type="text" name="duracion" required="true"/>
         <label>
             url
         </label>
-        <input type="text" name="url"/>
+        <input type="text" name="url" required="true"/>
         <button type="submit">
         Crear curso!
         </button>

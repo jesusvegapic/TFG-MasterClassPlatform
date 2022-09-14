@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 
     const id = uuidv4();
     await fetch('http://localhost:5000/videos/'+id, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json; charset=utf-8'
         },
