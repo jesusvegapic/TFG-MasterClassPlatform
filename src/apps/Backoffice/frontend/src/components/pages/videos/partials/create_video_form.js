@@ -1,5 +1,12 @@
 import React from "react";
 import {VideosPostController} from '../../../../controllers/videos/VideosPostController.ts'
+import {FilePond, registerPlugin} from 'react-filepond'
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+import 'filepond/dist/filepond.min.css'
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
+
+registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview)
 
 const CreateVideoForm = () => {
 
@@ -8,7 +15,8 @@ const CreateVideoForm = () => {
         const {target} = event;
         const videosPostController = new VideosPostController();
         try {
-            await videosPostController.createVideo(target.id.value, target.nombre.value, target.duracion.value, target.url.value);
+            console.log(target.video.files[0]);
+            await videosPostController.createVideo(target.id.value, target.nombre.value, target.duracion.value, target.video.files[0]);
         } catch(e) {
             console.log(e);
         }
@@ -29,12 +37,18 @@ const CreateVideoForm = () => {
             duración
         </label>
         <input type="text" name="duracion"/>
-        <label>
-            url
-        </label>
-        <input type="text" name="url"/>
+        <FilePond 
+        name="video"
+        type="file"
+        maxFiles={1}
+        labelIdle='Arrastra aquí el video o buscalo en <span class="filepond--label-action">tu pc</span>'
+        allowFileTypeValidation={true}
+        acceptedFileTypes={[
+            "video/mp4"
+        ]}
+        />
         <button type="submit">
-        Crear curso!
+        Crear video
         </button>
     </form>
     );

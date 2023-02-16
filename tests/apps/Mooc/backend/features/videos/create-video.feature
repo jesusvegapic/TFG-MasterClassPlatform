@@ -5,7 +5,7 @@ Feature: Create a new Video
 
 
 Scenario: A valid non existing video
-    Given I send a PUT request to "/videos/asdacd76-9ad9a8sd9-sd-098asdff-asd8as98" with body:
+    Given I send a PUT request to "/videos/:asdacd76-9ad9a8sd9-sd-098asdff-asd8as98" with body:
         """
         {
             "name": "The best video",

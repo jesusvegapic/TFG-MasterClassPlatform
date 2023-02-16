@@ -12,6 +12,7 @@ export class Server {
   private express: express.Express;
   private port: string;
   private httpServer?: http.Server;
+  
 
   constructor(port: string) {
     this.port = port;
@@ -22,7 +23,7 @@ export class Server {
     this.express.use(helmet.noSniff());
     this.express.use(helmet.hidePoweredBy());
     this.express.use(helmet.frameguard({ action: 'deny' }));
-    this.express.use(cors);
+    this.express.use(cors({origin: '*'}));
     this.express.use(compress());
     const router = Router();
     router.use(errorHandler());

@@ -7,3 +7,7 @@ services:
   Mooc.Videos.domain.CourseRepository:
     class: ../../../../../Contexts/Mooc/Videos/infrastructure/FileVideoRepository
     arguments: [""]
+
+  Shared.domain.Logger:
+    class: ../../../../../Contexts/Shared/infrastructure/ConsoleLogger
+    arguments: [""]
