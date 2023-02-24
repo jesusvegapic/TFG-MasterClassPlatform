@@ -1,0 +1,17 @@
+services:
+
+  Mooc.Videos.application.VideoCreator:
+    class: ../../../../../Contexts/Mooc/Videos/application/VideoCreator
+    arguments: ["@Mooc.Videos.domain.CourseRepository", "@Mooc.Videos.domain.VideoUrlGenerator"]
+
+  Mooc.Videos.domain.VideoUrlGenerator:
+    class: ../../../../../Contexts/Mooc/Videos/infrastructure/FakeVideoUrlGenerator
+    arguments: [""]
+
+  Mooc.Videos.domain.CourseRepository:
+    class: ../../../../../Contexts/Mooc/Videos/infrastructure/FileVideoRepository
+    arguments: [""]
+
+  Shared.domain.Logger:
+    class: ../../../../../Contexts/Shared/infrastructure/ConsoleLogger
+    arguments: [""]

@@ -1,5 +1,4 @@
-import faker from '@faker-js/faker';
-
+import faker from 'faker'
 // Snippet para recoger el elemento de input video y subir automaticamente un fichero del tipo elegido.
 Cypress.Commands.add("uploadFile", (selector, fileUrl, type = "") => {
     return cy.get(selector).then(subject => {
@@ -21,23 +20,23 @@ Cypress.Commands.add("uploadFile", (selector, fileUrl, type = "") => {
     });
   });
 
-describe('frontpage courses can be opened', () => {
+describe('frontpage videos can be opened', () => {
     it('exists title', () => {
-        cy.visit(''); 
-        cy.contains('Crear video');
+        cy.visit('/videos'); 
+        cy.contains('Aletheia| Videos');
     });
 });
 
 describe('Create video', () => {
     beforeEach(() => {
-        cy.visit('')
+        cy.visit('/videos')
     });
 
-    it('I can write upload video formulary, upload the video and see sucessfull message', () => {
+    it('I can write new video formulary, upload the video and see sucessfull message', () => {
         let i = 0;
-        const numberOfCourses = 5;
-        const resources = '../../../apps/Backoffice/frontend/features/resources'
-        while (i < numberOfCourses) {
+        const numberOfVideos = 5;
+        const resources = '../../../../resources'
+        while (i < numberOfVideos) {
             i++;
             const courseName = faker.random.words(1);
             cy.get('input[name="id"]').type('1234567');

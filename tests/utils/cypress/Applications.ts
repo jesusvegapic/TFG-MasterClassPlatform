@@ -1,4 +1,4 @@
-import { MoocBackendApp } from '../../../src/apps/Mooc/backend/MoocBackendApp';
+import { MoocBackendApp } from '../../../src/apps/mooc/backend/MoocBackendApp';
 
 export class Applications {
   private static DEV_BACKOFFICE_FRONTEND_PORT: string = '3000';
